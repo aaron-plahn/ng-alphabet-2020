@@ -24,9 +24,9 @@ export class TileComponent implements OnInit {
   get tileID(): string{
     return this._tileID;
   }
-  private currentLetter: String = ""; // initialize to empty string to be safe while loading
-  private currentWord: String = "";
-  private currentImagePath: string = "assets/images/logo.png";
+  currentLetter: String = ""; 
+  currentWord: String = "";
+  currentImagePath: string = "https://datsan.openbroadcaster.pro/download.php?id=3053";
   private alphabetData: IAlphabetData;
   private currentAudioPath: string = "test";
 
@@ -52,7 +52,8 @@ export class TileComponent implements OnInit {
   private createImagePath(tileNumber: string): string{
     let singleDigitTileNumber: boolean = Number(tileNumber)<10;
     console.log(`Number: ${Number(tileNumber)} is bigger than 9? ${singleDigitTileNumber}`)
-    return singleDigitTileNumber?`assets/images/p0${tileNumber}.png`:`assets/images/p${tileNumber}.png`;
+    // return singleDigitTileNumber?`assets/images/p0${tileNumber}.png`:`assets/images/p${tileNumber}.png`;
+    return "https://datsan.openbroadcaster.pro/download.php?media_id=3053"
   }
 
   private createAudioPathForWord(tileNumber: string): string{

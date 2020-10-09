@@ -1,7 +1,10 @@
 {
   "name": "ng-alphabet-2020",
   "nativescript": {
-    "id": "org.nativescript.ngalphabet2020"
+    "id": "org.nativescript.ngalphabet2020",
+    "tns-android": {
+      "version": "6.5.3"
+    }
   },
   "version": "0.0.0",
   "scripts": {

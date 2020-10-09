@@ -1,0 +1,9 @@
+#alpha {
+    border-style: solid;
+    padding: 0px;
+    border-color: white;
+    transform: skew(0deg);
+    color: white;
+    border-radius: 10px;
+    width: fit-content;
+}
