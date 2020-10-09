@@ -24,8 +24,8 @@ export class TileComponent implements OnInit {
   get tileID(): string{
     return this._tileID;
   }
-  currentLetter: String = ""; 
-  currentWord: String = "";
+  currentLetter: string = ""; 
+  currentWord: string = "";
   currentImagePath: string = "https://datsan.openbroadcaster.pro/download.php?id=3053";
   private alphabetData: IAlphabetData;
   private currentAudioPath: string = "test";
@@ -52,24 +52,27 @@ export class TileComponent implements OnInit {
   private createImagePath(tileNumber: string): string{
     let singleDigitTileNumber: boolean = Number(tileNumber)<10;
     console.log(`Number: ${Number(tileNumber)} is bigger than 9? ${singleDigitTileNumber}`)
-    // return singleDigitTileNumber?`assets/images/p0${tileNumber}.png`:`assets/images/p${tileNumber}.png`;
-    return "https://datsan.openbroadcaster.pro/download.php?media_id=3053"
+    return singleDigitTileNumber?`assets/images/Picture0${tileNumber}.png`:`assets/images/Picture${tileNumber}.png`;
+    // return "https://datsan.openbroadcaster.pro/download.php?media_id=3053"
   }
 
   private createAudioPathForWord(tileNumber: string): string{
     let singleDigitTileNumber: boolean = Number(tileNumber)<10;
     console.log(`Number: ${Number(tileNumber)} is bigger than 9? ${singleDigitTileNumber}`)
-    return singleDigitTileNumber?`assets/sounds/S0${tileNumber}.png`:`assets/sounds/S${tileNumber}.mp3`;
+    return singleDigitTileNumber?`assets/sounds/S0${tileNumber}.mp3`:`assets/sounds/S${tileNumber}.mp3`;
   }
 
   private updateLetter(id: string){
+    id = String(Number(id) - 1);
     let newLetter: string = this.alphabetData.letter[id];
     console.log(`New Letter: ${newLetter}`);
     (newLetter)? this.currentLetter = newLetter : this.currentLetter = "";
   }
 
-  private updateWord(id: string){
-    (this.alphabetData)? this.currentWord = this.alphabetData.word[id]: this.currentWord = "";
+  private updateWord(letter: string){
+    let newWord: string = this.alphabetData.word[letter];
+    console.log(`New word: ${newWord}`);
+    (newWord)? this.currentWord = newWord: this.currentWord = "";
   }
 
   private updateAudioPath(id: string){
@@ -77,10 +80,11 @@ export class TileComponent implements OnInit {
   }
 
   private updateTileData(id: string){
+    console.log(`Updating data for tile: ${id}`)
     this.updateImagePath(id);
     this.updateAudioPath(id);
     this.updateLetter(id);
-    this.updateWord(id);
+    this.updateWord(this.currentLetter);
   }
 
 }
