@@ -1,8 +1,11 @@
 <div class="container" id="alpha" style="border-style: solid; border-radius: 10px;">
     <div style="box-sizing: border-box; margin: 50px;">
-        <p (click)="clickLetter()">{{ currentLetter }} </p>
+        <div (click)="clickLetter()">
+            {{ currentLetter }} 
+        </div>
         <img width="100" (click)="clickImage()" alt="sorry: image failed to load" [src]=currentImagePath>
-        <!-- <p>{{ currentImagePath }}</p> -->
-        <p (click)="clickWord()">{{ currentWord }} </p>
+        <div (click)="clickWord()">
+            {{ currentWord }} 
+        </div>
     </div>
 </div>
