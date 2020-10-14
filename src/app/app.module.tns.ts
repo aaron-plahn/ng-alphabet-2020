@@ -8,7 +8,8 @@ import { CreditsComponent } from '@src/app/credits/credits.component';
 import { MenuComponent } from '@src/app/menu/menu.component';
 import { TileComponent } from '@src/app/tile/tile.component';
 import { DetailComponent } from '@src/app/detail/detail.component';
-import { MenuTileComponent } from './menu-tile/menu-tile.component';
+import { MenuTileComponent } from '@src/app/menu-tile/menu-tile.component';
+import { ModalComponent } from '@src/app/modal/modal.component';
 
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
@@ -25,7 +26,8 @@ import { MenuTileComponent } from './menu-tile/menu-tile.component';
     MenuComponent,
     TileComponent,
     DetailComponent,
-    MenuTileComponent
+    MenuTileComponent,
+    ModalComponent
   ],
   imports: [
     NativeScriptModule,

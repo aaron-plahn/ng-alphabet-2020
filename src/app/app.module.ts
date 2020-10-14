@@ -8,6 +8,7 @@ import { CreditsComponent } from '@src/app/credits/credits.component';
 import { MenuComponent } from '@src/app/menu/menu.component';
 import { TileComponent } from '@src/app/tile/tile.component';
 import { DetailComponent } from '@src/app/detail/detail.component';
+import { ModalComponent } from '@src/app/modal/modal.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { DetailComponent } from '@src/app/detail/detail.component';
     CreditsComponent,
     MenuComponent,
     TileComponent,
-    DetailComponent
+    DetailComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
