@@ -41,7 +41,6 @@ export class MenuComponent implements OnInit {
   }
 
   goToDetailWithTile(tileID: string){
-    console.log(`You clicked tile ${tileID}`);
     this.router.navigateByUrl('/detail', { state: { id: tileID } });
   }
 

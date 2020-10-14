@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
@@ -13,7 +14,7 @@ export class DetailComponent implements OnInit {
   state$: Observable<object>;
   currentID: string = "1";
 
-  constructor(public activatedRoute: ActivatedRoute) { }
+  constructor(public activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.state$ = this.activatedRoute.paramMap
@@ -33,6 +34,11 @@ export class DetailComponent implements OnInit {
 
   clickPrev(){
     this.currentID = String(this.cyclicDecrement(Number(this.currentID),1,53)); // @TODO fix magic numbers later
+  }
+
+  clickHome(){
+    this.router.navigateByUrl('/', { state: { id: this.currentID } });
+
   }
 
   cyclicIncrement(n: number, min: number, max: number){
