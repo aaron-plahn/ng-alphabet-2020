@@ -42,15 +42,15 @@ export class TileComponent implements OnInit {
 
   clickImage(){
     this.getID.emit(this.tileID);
-    this.audio.playAudio(this.currentAudioPath);
+    this.audio.playAudio(this.createAudioPath("word",this.tileID));
   }
 
   clickLetter() {
-    this.audio.playAudio(this.createAudioPathForWord(this.currentWord));
+    this.audio.playAudio(this.createAudioPath("letter",this.tileID));
   }
 
   clickWord(){
-    this.audio.playAudio(this.createAudioPathForWord(this.tileID));
+    this.audio.playAudio(this.createAudioPath("word",this.tileID));
   }
 
   private updateImagePath(id: string){
@@ -64,10 +64,14 @@ export class TileComponent implements OnInit {
     // return "https://datsan.openbroadcaster.pro/download.php?media_id=3053"
   }
 
-  private createAudioPathForWord(tileNumber: string): string{
+  private createAudioPath(context:string, tileNumber: string): string{
+    context = context.toLowerCase();
+    if(!(context === "word") && !(context === "letter")) throw new Error("Context must be one of: 'word','letter'");
     let singleDigitTileNumber: boolean = Number(tileNumber)<10;
     console.log(`Number: ${Number(tileNumber)} is bigger than 9? ${singleDigitTileNumber}`)
-    return singleDigitTileNumber?`assets/sounds/S0${tileNumber}.mp3`:`assets/sounds/S${tileNumber}.mp3`;
+    if(context === "word") return singleDigitTileNumber?`assets/sounds/S0${tileNumber}.mp3`:`assets/sounds/S${tileNumber}.mp3`;
+    return singleDigitTileNumber?`assets/sounds/L0${tileNumber}.mp3`:`assets/sounds/L${tileNumber}.mp3`;
+
   }
 
   private updateLetter(id: string){
@@ -82,15 +86,16 @@ export class TileComponent implements OnInit {
     console.log(`New word: ${newWord}`);
     (newWord)? this.currentWord = newWord: this.currentWord = "";
   }
-
+/*
   private updateAudioPath(id: string){
     this.currentAudioPath = this.createAudioPathForWord(id);
   }
+  */
 
   private updateTileData(id: string){
     console.log(`Updating data for tile: ${id}`)
     this.updateImagePath(id);
-    this.updateAudioPath(id);
+    // this.updateAudioPath(id);
     this.updateLetter(id);
     this.updateWord(this.currentLetter);
   }
