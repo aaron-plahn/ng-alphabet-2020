@@ -37,12 +37,20 @@ export class TileComponent implements OnInit {
   }
 
   ngAfterViewInit(){
-    this.sendID();
+    // this.sendID();
   }
 
-  sendID(){
+  clickImage(){
     this.getID.emit(this.tileID);
     this.audio.playAudio(this.currentAudioPath);
+  }
+
+  clickLetter() {
+    this.audio.playAudio(this.createAudioPathForWord(this.currentWord));
+  }
+
+  clickWord(){
+    this.audio.playAudio(this.createAudioPathForWord(this.tileID));
   }
 
   private updateImagePath(id: string){
