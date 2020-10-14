@@ -17,9 +17,16 @@ export class TileComponent implements OnInit {
     this.alphabetData = dataJSON;
     this.updateTileData(value);
   });
-   
   };
-  @Output() getID = new EventEmitter<string>();
+  private _active: boolean = true;
+  @Input() set active(value: boolean){
+    this._active = value;
+  }
+  @Output() public getID = new EventEmitter<string>();
+  public sendIDOnClick() {
+      this.getID.emit(this._tileID);
+      console.log(`You clicked on tile: ${this._tileID}`);
+  }
 
   get tileID(): string{
     return this._tileID;
@@ -41,15 +48,18 @@ export class TileComponent implements OnInit {
   }
 
   clickImage(){
+    if(! this._active) return;
     this.getID.emit(this.tileID);
     this.audio.playAudio(this.createAudioPath("word",this.tileID));
   }
 
   clickLetter() {
+    if(! this._active) return;
     this.audio.playAudio(this.createAudioPath("letter",this.tileID));
   }
 
   clickWord(){
+    if(! this._active) return;
     this.audio.playAudio(this.createAudioPath("word",this.tileID));
   }
 

@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row" *ngFor="let menuRow of menuRows">
       <div class="col-4" *ngFor="let column of menuRow">
-        <app-menu-tile [tileID]= "column.id" (getID)="goToDetailWithTile($event)"></app-menu-tile> 
+        <app-tile [tileID]= "column.id" [active]="false" (getID)="goToDetailWithTile($event)"></app-tile> 
       </div>
     </div>
   </div> 
