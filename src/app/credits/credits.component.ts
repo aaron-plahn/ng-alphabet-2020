@@ -9,20 +9,22 @@ export class CreditsComponent implements OnInit {
 
   private contributors = [{
     "name": "Bella Alphonse",
-    "title": "Language Advisor",
+    "role": "Language Advisor",
     "contribution": "Compiled word list and photos with assistance from Aaron. Voice, spelling, and editing."
   },
   {
     "name": "Aaron Plahn",
-    "title": "Full Stack Developer",
+    "role": "Full Stack Developer",
     "contribution": "Technical design, business logic, server \ services, testing, and deployment. Audio processing and assistance with compiling word list."
   },
   {
     "name": "Justin Bambrick",
-    "title": "Front End Developer",
+    "role": "Front End Developer",
     "contribution": "UI \ UX, visual design, and styling."
   }
   ];
+
+  contributor1 = this.contributors[1];
 
   constructor() { }
 
