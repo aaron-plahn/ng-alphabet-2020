@@ -1,11 +1,32 @@
-<div class="container" id="alpha" style="border-style: solid; border-radius: 10px;" (click)="sendIDOnClick()">
-    <div style="box-sizing: border-box; margin: 50px;">
+<!--
+<div class="container" id="alpha" (click)="sendIDOnClick()">
+    <div id="outer">
         <div (click)="clickLetter()">
-            {{ currentLetter }} 
-        </div>
-        <img width="100" (click)="clickImage()" alt="sorry: image failed to load" [src]=currentImagePath>
-        <div (click)="clickWord()">
-            {{ currentWord }} 
+           <p><b> {{ currentLetter }} </b></p>
         </div>
     </div>
+        <div id="inner">
+            <img class="responsive" height="115px" width="auto" (click)="clickImage()" alt="sorry: image failed to load" src="https://datsan.openbroadcaster.pro/download.php?media_id=3170">
+        </div>
+        <div id="bottom">
+        <div (click)="clickWord()">
+            <p> {{ currentWord }} </p>
+         </div>
+         </div>
+</div>
+-->
+<div style="width: 100%; height:220px;border-radius: 30px;" (click)="sendIDOnClick()">
+<div style="height: inherit; display: flex-box;width: inherit; padding: 0;border-radius: 30px;">
+<div id="blocks">
+    <div id="top">
+        <p> {{ currentLetter }} </p>
+    </div>
+    <div id="inners">
+        <img class="responsive" height="100%" width="auto" (click)="clickImage()" alt="sorry: image failed to load" src="https://datsan.openbroadcaster.pro/download.php?media_id=3170">
+    </div>
+    <div id="bottoms">
+        <p style="font-size: small;"> {{ currentWord }} </p>
+    </div>
+</div>
+</div>
 </div>
