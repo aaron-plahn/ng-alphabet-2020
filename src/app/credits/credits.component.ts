@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreditsComponent implements OnInit {
 
-  private contributors = [{
+  public contributors = [{
     "name": "Bella Alphonse",
     "role": "Language Advisor",
     "contribution": "Compiled word list and photos with assistance from Aaron. Voice, spelling, and editing."

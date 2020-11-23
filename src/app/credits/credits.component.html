@@ -1,5 +1,7 @@
 <div *ngFor="let contributor of contributors" class="container" style="text-align: center; margin-top: 150px;">
   <div class="container">
-      <app-modal [contributor]='contributor'></app-modal>
+     <h1>{{contributor.name}}</h1>
+     <h3>{{contributor.role}}</h3>
+     <p>{{contributor.contribution}}</p>
   </div>
 </div>
